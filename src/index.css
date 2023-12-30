@@ -35,7 +35,7 @@ a{
 p{
   margin: 0;
   padding: 0;
-  word-break: break-word;
+  word-break: keep-all;
   font-family: 'Poppins', sans-serif;
 }
 

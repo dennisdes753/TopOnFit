@@ -131,8 +131,9 @@ $Primary_Fit_Gradient: linear-gradient(101deg, rgba(89, 223, 116, 0.1) 15.26%, r
         width: 100%;
         display: flex;
         gap: 20px;
+        flex-wrap: wrap;
         .item {
-            width: 23.8%;
+            width: 24%;
             background: #fff;
             padding: 25px;
             position: relative;
@@ -144,12 +145,18 @@ $Primary_Fit_Gradient: linear-gradient(101deg, rgba(89, 223, 116, 0.1) 15.26%, r
                 .item_image {
                     margin-top: -70px;
                     position: relative;
+                    img{
+                        max-width: 179px;
+                        height: 218px;
+                        object-fit: contain;
+                        width: 100%;
+                    }
                     .white_background {
                         position: absolute;
                         content: '';
                         width: 100%;
                         height: 83px;
-                        top: 57px;
+                        top: 117px;
                         background: linear-gradient(180deg, rgba(249, 249, 249, 0.00) 0%, #FFF 100%);
                     }
                 }
