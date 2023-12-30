@@ -1,0 +1,16 @@
+.topnav{
+    width: 100%;
+    .navbar {
+        width: 100%;
+        background: transparent !important;
+        border-bottom: 1px solid #F9F9F9;
+        padding: 20px 0;
+        .navbar-brand{
+            img{
+                width: 259px;
+                height: 60px;
+                object-fit: contain;
+            }
+        }
+    }
+}
