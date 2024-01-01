@@ -1,0 +1,60 @@
+
+.slider {
+    width: 100%;
+    margin: 100px auto;
+}
+
+.slick-slide {
+    margin: 0px 20px;
+}
+
+.slick-slide img {
+    width: 100%;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    color: #666666 !important;
+}
+
+.customer_experience .slick-prev:before {
+    content: '🠈' !important;
+}
+
+.customer_experience .slick-next:before {
+    content: '🠊' !important;
+}
+
+.customer_experience .slick-prev {
+    left: 45% !important;
+    bottom: -35px !important;
+    top: 53%;
+    width: 92px;
+    height: 92px;
+    border: 1px solid #E8E8E8;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.customer_experience .slick-next {
+    right: 42% !important;
+    top: 53%;
+    width: 92px;
+    height: 92px;
+    border: 1px solid #E8E8E8;
+    border-radius: 50%;
+}
+
+
+.slick-slide {
+    transition: all ease-in-out .3s;
+    opacity: .2;
+}
+
+.slick-active {
+    opacity: .5;
+}
+
+.slick-current {
+    opacity: 1;
+}
