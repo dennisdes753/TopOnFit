@@ -1,10 +1,12 @@
 import React from 'react';
 import Header from '../../CommonComponent/Header/header';
 import {Container, Row, Col, Image, InputGroup, Form, Button} from 'react-bootstrap';
-import { BannerImage, Coach1, Coach2, Coach3, Coach4, FinessHand, HowToUseImg, FitnessVideo } from '../../asset/img';
+import { BannerImage, Coach1, Coach2, Coach3, Coach4, FinessHand, HowToUseImg, FitnessVideo, RatingImg, FitnessVideo1, FitnessVideo2, FitnessVideo3, FitnessVideo4, FitnessVideo5, FitnessVideo6, FitnessVideo7 } from '../../asset/img';
 import OurUltimatePlans from '../Components/HomepageTab/ourUltimatePlans';
-
 import ExperienceSlider from '../Components/CustomerExperience/slider';
+import { Player } from 'video-react';
+
+import "../../../node_modules/video-react/dist/video-react.css";
 
 import './homepage.scss';
 
@@ -451,7 +453,118 @@ function Homepage() {
 							</div>
 						</Col>
 						<Col xxl="8" lg="6" md="12" xs="12">
-							<iframe className="embed-responsive-item" title="UniqueTitleForIframe" src={FitnessVideo} allowFullScreen></iframe>
+							<div className="player_video">
+								<Player
+									playsInline
+									poster={FitnessVideo}
+									src={FitnessVideo}
+									allowFullScreen
+								/>
+							</div>	
+						</Col>
+					</Row>
+				</Container>
+			</section>
+
+			<section className="best_transformation">
+				<div className="heading">
+					<h4>Best Transformation Stories</h4>
+					<svg xmlns="http://www.w3.org/2000/svg" width="145" height="10" viewBox="0 0 145 10" fill="none">
+						<path fillRule="evenodd" clipRule="evenodd" d="M128.264 1.301C109.034 0.163069 71.7534 -0.347839 52.2231 0.255962C33.6635 0.836539 11.822 2.78728 2.41498 2.78728C-0.0580828 2.78728 -0.219896 2.8105 0.149908 3.18207C0.704615 3.73943 5.23474 3.85554 13.2318 3.50719C19.4261 3.25174 19.5647 3.25175 20.5355 3.71621C21.5062 4.18067 21.668 4.18067 27.4924 3.94844C38.8639 3.48398 46.7916 2.97307 50.0274 2.99629C52.9627 3.01951 53.4481 3.43753 47.9703 3.69298C35.2583 4.32001 35.1196 4.34323 35.9517 5.15604C36.3215 5.52761 36.8069 5.57405 41.1059 5.50438C45.8209 5.43471 45.6591 5.3186 46.2138 5.85273C46.5836 6.20108 47.0689 6.38686 47.5774 6.41008C51.4835 6.45653 62.4852 6.71199 62.4852 6.71199C59.4805 6.80488 55.8056 7.10678 55.6207 7.29256C54.7886 8.12859 55.8749 8.19826 69.6964 8.40727C85.2513 8.61628 97.0388 9.40586 98.518 9.96322C98.8878 10.1026 99.0958 9.82388 98.8416 9.49876C97.9633 8.4305 83.2404 8.08215 77.1618 7.75703C75.9137 7.68736 75.1279 7.26934 78.4561 7.15322C86.3607 6.89777 83.5178 6.08496 82.6626 6.01529C81.507 5.9224 78.849 5.94562 72.285 5.8295C69.1185 5.78306 70.3666 5.38827 72.4237 5.36504C91.4224 5.10959 94.1728 5.27215 94.1728 5.15604C94.1728 4.38967 93.5025 4.29679 85.1126 4.18067C77.6934 4.06455 79.3806 3.60009 84.1187 3.57687C91.0988 3.55365 104.481 3.78587 104.666 3.50719C105.036 2.88017 104.065 2.48538 101.823 2.32282C98.31 2.06737 112.455 2.34604 122.694 2.71761C141.808 3.4143 144.998 4.20389 144.998 3.4143C145.044 2.32282 144.512 2.25315 128.264 1.301Z" fill="url(#paint0_linear_918_29947)" />
+						<defs>
+							<linearGradient id="paint0_linear_918_29947" x1="26.4195" y1="2.60077e-07" x2="41.1814" y2="41.5415" gradientUnits="userSpaceOnUse">
+								<stop stopColor="#59DF74" />
+								<stop offset="1" stopColor="#15C0B6" />
+							</linearGradient>
+						</defs>
+					</svg>
+				</div>
+				<div className="ratings">
+					<Image className="img-fluid" src={RatingImg} alt="rating image"/> 
+				</div>
+				<Container>
+					<Row>
+						<Col xxl="12" md="12" xs="12">
+							<div className="videos_column">
+								<div className="first_column">
+									<div className="embed-responsive embed-responsive-16by9 first_video">
+										<video class="embed-responsive-item" controls  muted src={FitnessVideo1} type="video/mp4" allowFullScreen/>
+									</div>	
+								</div>
+								<div className="first_column">
+									<div className="second_video">
+										<video class="embed-responsive-item" controls  muted src={FitnessVideo2} type="video/mp4" />
+									</div>
+									<div className="third_video">
+										<video class="embed-responsive-item" controls  muted src={FitnessVideo4} type="video/mp4" />
+									</div>	
+								</div>
+								<div className="first_column">
+									<div className="forth_video">
+										<video class="embed-responsive-item" controls  muted src={FitnessVideo6} type="video/mp4" />
+									</div>	
+								</div>
+								<div className="first_column">
+									<div className="fifth_video">
+										<video class="embed-responsive-item" controls  muted src={FitnessVideo5} type="video/mp4" />
+									</div>	
+									<div className="sixth_video">
+										<video class="embed-responsive-item" controls  muted src={FitnessVideo2} type="video/mp4" />
+									</div>	
+								</div>
+								<div className="first_column">
+									<div className="seventh_video">
+										<video class="embed-responsive-item" controls  muted src={FitnessVideo7} type="video/mp4" />
+									</div>	
+								</div>
+							</div>
+						</Col>
+					</Row>	
+				</Container>
+			</section>
+
+			<section className="testimonials">
+				<Container>
+					<Row>
+						<Col xxl="12" lg="12" sm="12" xs="12">
+							<div className="heading">
+								<h4>We Let Our Numbers Do The Talking</h4>
+							</div>
+						</Col>
+					</Row>
+					<Row>
+						<Col xxl="12" lg="12" sm="12" xs="12">
+							<div className="numbers">
+								<ul>
+									<li>
+										<h4>100K+</h4>
+										<p>Users</p>
+									</li>
+									<li>
+										<h4>100+</h4>
+										<p>Coaches</p>
+									</li>
+									<li>
+										<h4>12K+</h4>
+										<p>Diet Plans</p>
+									</li>
+									<li>
+										<h4>94%</h4>
+										<p>Success Rate</p>
+									</li>
+									<li>
+										<h4>4.6</h4>
+										<p>Star Rating</p>
+									</li>
+								</ul>
+							</div>
+						</Col>
+					</Row>
+					<Row>
+						<Col xxl="12" lg="12" sm="12" xs="12">
+							<div className="common_button">
+								<button className="btn btn-primary global_button">Book Consultation</button>
+							</div>
 						</Col>
 					</Row>
 				</Container>
