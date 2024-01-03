@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Header from '../../CommonComponent/Header/header';
 import { Container, Row, Col, Image, InputGroup, Form, Button } from 'react-bootstrap';
-import { BannerImage, Coach1, Coach2, Coach3, Coach4, FinessHand, HowToUseImg, FitnessVideo, RatingImg, FitnessVideo1, FitnessVideo2, FitnessVideo3, FitnessVideo4, FitnessVideo5, FitnessVideo6, FitnessVideo7, AppLinks, AppStore, GooglePlay, Feature1, Feature2, Feature3, Feature4, Feature5, Feature6, BannerContactSection, HappyIcon, HorrorIcon, Whatsapp } from '../../asset/img';
+import { BannerImage, Coach1, Coach2, Coach3, Coach4, FinessHand, HowToUseImg, FitnessVideo, RatingImg, FitnessVideo1, FitnessVideo2,  FitnessVideo4, FitnessVideo5, FitnessVideo6, FitnessVideo7, AppLinks, AppStore, GooglePlay, Feature1, Feature2, Feature3, Feature4, Feature5, Feature6, BannerContactSection, HappyIcon, HorrorIcon, Whatsapp } from '../../asset/img';
 import { NavLink } from 'react-router-dom';
 import OurUltimatePlans from '../Components/HomepageTab/ourUltimatePlans';
 import ExperienceSlider from '../Components/CustomerExperience/slider';
@@ -18,8 +18,6 @@ function Homepage() {
 
 	// Validations
 	const [validated, setValidated] = useState(false);
-	const [showSection1, setShowSection1] = useState(true);
-	const [showSection2, setShowSection2] = useState(false);
 	const [formSubmitted, setFormSubmitted] = useState(false);
 
 	const handleSubmit = (event) => {
