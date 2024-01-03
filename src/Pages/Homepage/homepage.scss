@@ -2,6 +2,14 @@
 
 $Primary_Fit_Gradient: linear-gradient(101deg, rgba(89, 223, 116, 0.1) 15.26%, rgba(21, 192, 182, 0.1) 0.1%);
 
+.whatsapp {
+    position: fixed;
+    content: '';
+    right: 0px;
+    bottom: -50px;
+    z-index: 1;
+}
+
 .banner_section {
     width: 100%;
     margin: 30px 0;
@@ -314,11 +322,9 @@ $Primary_Fit_Gradient: linear-gradient(101deg, rgba(89, 223, 116, 0.1) 15.26%, r
                 background-image: url(../../asset/images/coach_content_shape.png);
                 top: -50px;
                 width: 100%;
-                max-width: 344px;
-                height: 100%;
-                min-height: 332px;
+                height: calc(100% + 71px);
                 background-repeat: no-repeat;
-                background-size: contain;
+                background-size: 100% 100%;
                 left: 0;
                 z-index: -1;
             }
@@ -777,10 +783,80 @@ $Primary_Fit_Gradient: linear-gradient(101deg, rgba(89, 223, 116, 0.1) 15.26%, r
     }
     .health_score_section_wrap {
         width: 100%;
-        display: flex;
-        gap: 30px;
-        justify-content: center;
-        flex-wrap: wrap;
+        .new_section{
+            width: 100%;
+            text-align: center;
+            background: #fff;
+            padding: 70px;
+            border-radius: 12px;
+            h4{
+                color: #222222;
+                font-size: 42px;
+                span{
+                    color: #15C06E;
+                    display: block;
+                }
+            }
+            p{
+                font-size: 18px;
+                color: #999;
+                margin: 20px 20%;
+            }
+            .health_score_less_more{
+                width: 100%;
+                display: flex;
+                gap: 22px;
+                justify-content: center;
+                margin: 25px 0;
+                .health_less_div{
+                    border-radius: 12px;
+                    border: 2px solid #15C06E;
+                    background: linear-gradient(180deg, #E6F8EF 0%, #FFF 100%);
+                    min-width: 297px;
+                    min-height: 197px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    h4{
+                        font-size: 24px;
+                        margin: 10px 0;
+                        color: #15C06E;
+                    }
+                    p{
+                        font-size: 16px;
+                        margin: 0;
+                    }
+                }
+                .health_more_div{
+                    border-radius: 12px;
+                    border: 1px solid #E6E6E6;
+                    background: #FFF;
+                    min-width: 297px;
+                    min-height: 197px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    h4 {
+                        font-size: 24px;
+                        margin: 10px 0;
+                        color: #EC6E6E;
+                    }
+                
+                    p {
+                        font-size: 16px;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+        .health_wrap{
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }    
     
         .health_question{
             width: 45%;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Header from '../../CommonComponent/Header/header';
 import { Container, Row, Col, Image, InputGroup, Form, Button } from 'react-bootstrap';
-import { BannerImage, Coach1, Coach2, Coach3, Coach4, FinessHand, HowToUseImg, FitnessVideo, RatingImg, FitnessVideo1, FitnessVideo2, FitnessVideo3, FitnessVideo4, FitnessVideo5, FitnessVideo6, FitnessVideo7, AppLinks, AppStore, GooglePlay, Feature1, Feature2, Feature3, Feature4, Feature5, Feature6, BannerContactSection } from '../../asset/img';
+import { BannerImage, Coach1, Coach2, Coach3, Coach4, FinessHand, HowToUseImg, FitnessVideo, RatingImg, FitnessVideo1, FitnessVideo2, FitnessVideo3, FitnessVideo4, FitnessVideo5, FitnessVideo6, FitnessVideo7, AppLinks, AppStore, GooglePlay, Feature1, Feature2, Feature3, Feature4, Feature5, Feature6, BannerContactSection, HappyIcon, HorrorIcon, Whatsapp } from '../../asset/img';
 import { NavLink } from 'react-router-dom';
 import OurUltimatePlans from '../Components/HomepageTab/ourUltimatePlans';
 import ExperienceSlider from '../Components/CustomerExperience/slider';
@@ -20,6 +20,7 @@ function Homepage() {
 	const [validated, setValidated] = useState(false);
 	const [showSection1, setShowSection1] = useState(true);
 	const [showSection2, setShowSection2] = useState(false);
+	const [formSubmitted, setFormSubmitted] = useState(false);
 
 	const handleSubmit = (event) => {
 		const form = event.currentTarget;
@@ -31,13 +32,18 @@ function Homepage() {
 		setValidated(true);
 	};
 
-	const handleSection1Submit = () => {
-		setShowSection1(false);
-		setShowSection2(true);
+	const handleFormSubmit = (event) => {
+		event.preventDefault();
+		setFormSubmitted(true);
 	};
 
 	return (
 		<>
+		<div className="whatsapp">
+				<NavLink to="#" >
+				<Image className="mg-fluid" src={Whatsapp}/>
+			</NavLink>
+		</div>
 			<Header />
 			<section className="banner_section">
 				<Container>
@@ -743,37 +749,59 @@ function Homepage() {
 					<Row>
 						<Col xxl="12" lg="12" md="12" xs="12">
 							<div className="health_score_section_wrap">
-								{HealthScoreData.map((score, i) =>
-									<div key={i} className="health_question">
-										<h4>{score.heading}</h4>
-										<Form >
-											{['radio'].map((type) => (
-												<div key={`inline-${type}`} className="form_check_wrap">
-													{Object.entries(score).map(([key, value]) => {
-														if (key.startsWith('label')) {
-															const labelNumber = key.replace('label', '');
-															return (
-																<Form.Check
-																	key={labelNumber}
-																	inline
-																	label={value}
-																	name={`group${i + 1}`}
-																	type={type}
-																	id={`inline-${type}-${score.Id}-${labelNumber}`}
-																/>
-															);
-														}
-														return null;
-													})}
-												</div>
-											))}
-										</Form>
+								{formSubmitted ? (
+									<div className="new_section">
+										<h4>Your Health score is <span>Less than = 15</span></h4>
+										<p>Calculate the total health score based on the responses. The higher the score, the better the overall health.</p>
+										<div className="health_score_less_more">
+											<div className="health_less_div">
+												<Image className="img-fluid" src={HappyIcon} alt={HappyIcon}/>
+												<h4> {'<= 15'}</h4>
+												<p>You are at your best health.</p>
+											</div>
+											<div className="health_more_div">
+												<Image className="img-fluid" src={HorrorIcon} alt={HorrorIcon} />
+												<h4> {'<= 15'}</h4>
+												<p>Consult an expert now!.</p>
+											</div>
+										</div>
 									</div>
+								):(
+									<div className="health_wrap">	
+									{HealthScoreData.map((score, i) =>
+										<div key={i} className="health_question">
+											<h4>{score.heading}</h4>
+											<Form >
+												{['radio'].map((type) => (
+													<div key={`inline-${type}`} className="form_check_wrap">
+														{Object.entries(score).map(([key, value]) => {
+															if (key.startsWith('label')) {
+																const labelNumber = key.replace('label', '');
+																return (
+																	<Form.Check
+																		key={labelNumber}
+																		inline
+																		label={value}
+																		name={`group${i + 1}`}
+																		type={type}
+																		id={`inline-${type}-${score.Id}-${labelNumber}`}
+																	/>
+																);
+															}
+															return null;
+														})}
+													</div>
+												))}
+											</Form>
+										</div>
+									)}
+							
+								<div className="common_button">
+									<button className="btn btn-primary global_button" onClick={handleFormSubmit}>Calculate Now</button>
+								</div>
+								</div>
 								)}
-							</div>
-							<div className="common_button">
-								<button className="btn btn-primary global_button">Calculate Now</button>
-							</div>
+							</div>	
 						</Col>
 					</Row>
 				</Container>

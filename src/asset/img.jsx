@@ -49,3 +49,6 @@ export { default as MedicalCondition2 } from './images/medical_condition_2.png';
 export { default as MedicalCondition3 } from './images/medical_condition_3.png';
 export { default as MedicalCondition4 } from './images/medical_condition_4.png';
 export { default as MedicalCondition5 } from './images/medical_condition_5.png';
+export { default as HappyIcon } from './images/smiley_icon.png';
+export { default as HorrorIcon } from './images/horror_icon.png';
+export { default as Whatsapp } from './images/whatapp.png';
