@@ -1,20 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../../CommonComponent/Header/header';
-import {Container, Row, Col, Image, InputGroup, Form, Button} from 'react-bootstrap';
-import { BannerImage, Coach1, Coach2, Coach3, Coach4, FinessHand, HowToUseImg, FitnessVideo, RatingImg, FitnessVideo1, FitnessVideo2, FitnessVideo3, FitnessVideo4, FitnessVideo5, FitnessVideo6, FitnessVideo7, AppLinks, AppStore, GooglePlay, Feature1, Feature2, Feature3, Feature4, Feature5, Feature6 } from '../../asset/img';
-import {NavLink} from 'react-router-dom';
+import { Container, Row, Col, Image, InputGroup, Form, Button } from 'react-bootstrap';
+import { BannerImage, Coach1, Coach2, Coach3, Coach4, FinessHand, HowToUseImg, FitnessVideo, RatingImg, FitnessVideo1, FitnessVideo2, FitnessVideo3, FitnessVideo4, FitnessVideo5, FitnessVideo6, FitnessVideo7, AppLinks, AppStore, GooglePlay, Feature1, Feature2, Feature3, Feature4, Feature5, Feature6, BannerContactSection } from '../../asset/img';
+import { NavLink } from 'react-router-dom';
 import OurUltimatePlans from '../Components/HomepageTab/ourUltimatePlans';
 import ExperienceSlider from '../Components/CustomerExperience/slider';
+import { BannerModal, ClaimOffer, AskExpert, HowUse, BookConsultation } from '../Components/Modals/modal';
+import { HealthScoreData } from './healthScoreData';
 import { Player } from 'video-react';
+import Footer from '../../CommonComponent/Footer/footer';
 
 import "../../../node_modules/video-react/dist/video-react.css";
 
 import './homepage.scss';
 
 function Homepage() {
+
+	// Validations
+	const [validated, setValidated] = useState(false);
+	const [showSection1, setShowSection1] = useState(true);
+	const [showSection2, setShowSection2] = useState(false);
+
+	const handleSubmit = (event) => {
+		const form = event.currentTarget;
+		if (form.checkValidity() === false) {
+			event.preventDefault();
+			event.stopPropagation();
+		}
+
+		setValidated(true);
+	};
+
+	const handleSection1Submit = () => {
+		setShowSection1(false);
+		setShowSection2(true);
+	};
+
 	return (
 		<>
-			<Header/>
+			<Header />
 			<section className="banner_section">
 				<Container>
 					<div className="banner_inner_section">
@@ -31,9 +55,7 @@ function Homepage() {
 											aria-describedby="basic-addon2"
 											type="number"
 										/>
-										<Button variant="outline-secondary" id="button-addon2" className="input_button global_button">
-											Get Started
-										</Button>
+										<BannerModal />
 									</InputGroup>
 								</div>
 							</Col>
@@ -60,7 +82,7 @@ function Homepage() {
 								</div>
 							</Col>
 						</Row>
-					</div>	
+					</div>
 				</Container>
 			</section>
 
@@ -81,12 +103,10 @@ function Homepage() {
 					<Row>
 						<Col xxl="12" lg="12" md="12" sm="12" xs="12">
 							<div className="ultimate_plan_column_1">
-								<OurUltimatePlans/>
+								<OurUltimatePlans />
 							</div>
-							<div className="claim_button">
-								<button className="btn btn-primary global_button">Claim your Offer</button>
-							</div>
-						</Col> 
+							<ClaimOffer />
+						</Col>
 					</Row>
 				</Container>
 			</section>
@@ -104,7 +124,7 @@ function Homepage() {
 						</defs>
 					</svg>
 				</div>
-				<ExperienceSlider/>
+				<ExperienceSlider />
 			</section>
 
 			<section className="our_coaches">
@@ -125,14 +145,14 @@ function Homepage() {
 					<Row>
 						<Col xxl="3" lg="6" md="12" sm="12" xs="12">
 							<div className="coach_section">
-								<Image className="img-fluid" src={Coach1} alt="Coach_img_1"/>
+								<Image className="img-fluid" src={Coach1} alt="Coach_img_1" />
 								<div className="coach_content">
 									<h6>Diet Coach</h6>
 									<h5>5 Years Expertise</h5>
 									<p>We optimise your diet with calorie-counted region-based meals and make healthy eating fun and easy!</p>
 								</div>
 							</div>
-						</Col> 
+						</Col>
 						<Col xxl="3" lg="6" md="12" sm="12" xs="12">
 							<div className="coach_section">
 								<Image className="img-fluid" src={Coach2} alt="Coach_img_1" />
@@ -142,7 +162,7 @@ function Homepage() {
 									<p>Let’s conquer your goals with a fresh and exciting mix of home and gym workout plans and achieve your dream body!</p>
 								</div>
 							</div>
-						</Col> 
+						</Col>
 						<Col xxl="3" lg="6" md="12" sm="12" xs="12">
 							<div className="coach_section">
 								<Image className="img-fluid" src={Coach3} alt="Coach_img_1" />
@@ -152,7 +172,7 @@ function Homepage() {
 									<p>With scientific yogic and naturopathic practices, let’s achieve your mental and physical well-being together. </p>
 								</div>
 							</div>
-						</Col> 
+						</Col>
 						<Col xxl="3" lg="6" md="12" sm="12" xs="12">
 							<div className="coach_section">
 								<Image className="img-fluid" src={Coach4} alt="Coach_img_1" />
@@ -162,13 +182,11 @@ function Homepage() {
 									<p>Feeling stuck? Let’s talk it out! We are here for unlimited consultations throughout your health journey!</p>
 								</div>
 							</div>
-						</Col> 
+						</Col>
 					</Row>
 					<Row>
 						<Col xxl="12" lg="12" md="12" xs="12">
-							<div className="common_button">
-								<button className="btn btn-primary global_button">Ask the Expert</button>
-							</div>
+							<AskExpert />
 						</Col>
 					</Row>
 				</Container>
@@ -184,11 +202,11 @@ function Homepage() {
 									<span>
 										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
 											<circle cx="12" cy="12" r="12" fill="url(#paint0_linear_778_28867)" />
-											<path d="M7.5 12.5L10.1471 15L16.5 9" stroke="white" strokeWidth="1.5" stroke-linecap="round" />
+											<path d="M7.5 12.5L10.1471 15L16.5 9" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
 											<defs>
 												<linearGradient id="paint0_linear_778_28867" x1="4.37288" y1="6.24184e-07" x2="25.3745" y2="4.07592" gradientUnits="userSpaceOnUse">
-													<stop stop-color="#59DF74" />
-													<stop offset="1" stop-color="#15C0B6" />
+													<stop stopColor="#59DF74" />
+													<stop offset="1" stopColor="#15C0B6" />
 												</linearGradient>
 											</defs>
 										</svg>
@@ -199,11 +217,11 @@ function Homepage() {
 									<span>
 										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
 											<circle cx="12" cy="12" r="12" fill="url(#paint0_linear_778_28867)" />
-											<path d="M7.5 12.5L10.1471 15L16.5 9" stroke="white" strokeWidth="1.5" stroke-linecap="round" />
+											<path d="M7.5 12.5L10.1471 15L16.5 9" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
 											<defs>
 												<linearGradient id="paint0_linear_778_28867" x1="4.37288" y1="6.24184e-07" x2="25.3745" y2="4.07592" gradientUnits="userSpaceOnUse">
-													<stop stop-color="#59DF74" />
-													<stop offset="1" stop-color="#15C0B6" />
+													<stop stopColor="#59DF74" />
+													<stop offset="1" stopColor="#15C0B6" />
 												</linearGradient>
 											</defs>
 										</svg>
@@ -214,11 +232,11 @@ function Homepage() {
 									<span>
 										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
 											<circle cx="12" cy="12" r="12" fill="url(#paint0_linear_778_28867)" />
-											<path d="M7.5 12.5L10.1471 15L16.5 9" stroke="white" strokeWidth="1.5" stroke-linecap="round" />
+											<path d="M7.5 12.5L10.1471 15L16.5 9" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
 											<defs>
 												<linearGradient id="paint0_linear_778_28867" x1="4.37288" y1="6.24184e-07" x2="25.3745" y2="4.07592" gradientUnits="userSpaceOnUse">
-													<stop stop-color="#59DF74" />
-													<stop offset="1" stop-color="#15C0B6" />
+													<stop stopColor="#59DF74" />
+													<stop offset="1" stopColor="#15C0B6" />
 												</linearGradient>
 											</defs>
 										</svg>
@@ -229,11 +247,11 @@ function Homepage() {
 									<span>
 										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
 											<circle cx="12" cy="12" r="12" fill="url(#paint0_linear_778_28867)" />
-											<path d="M7.5 12.5L10.1471 15L16.5 9" stroke="white" strokeWidth="1.5" stroke-linecap="round" />
+											<path d="M7.5 12.5L10.1471 15L16.5 9" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
 											<defs>
 												<linearGradient id="paint0_linear_778_28867" x1="4.37288" y1="6.24184e-07" x2="25.3745" y2="4.07592" gradientUnits="userSpaceOnUse">
-													<stop stop-color="#59DF74" />
-													<stop offset="1" stop-color="#15C0B6" />
+													<stop stopColor="#59DF74" />
+													<stop offset="1" stopColor="#15C0B6" />
 												</linearGradient>
 											</defs>
 										</svg>
@@ -244,11 +262,11 @@ function Homepage() {
 									<span>
 										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
 											<circle cx="12" cy="12" r="12" fill="url(#paint0_linear_778_28867)" />
-											<path d="M7.5 12.5L10.1471 15L16.5 9" stroke="white" strokeWidth="1.5" stroke-linecap="round" />
+											<path d="M7.5 12.5L10.1471 15L16.5 9" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
 											<defs>
 												<linearGradient id="paint0_linear_778_28867" x1="4.37288" y1="6.24184e-07" x2="25.3745" y2="4.07592" gradientUnits="userSpaceOnUse">
-													<stop stop-color="#59DF74" />
-													<stop offset="1" stop-color="#15C0B6" />
+													<stop stopColor="#59DF74" />
+													<stop offset="1" stopColor="#15C0B6" />
 												</linearGradient>
 											</defs>
 										</svg>
@@ -259,11 +277,11 @@ function Homepage() {
 									<span>
 										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
 											<circle cx="12" cy="12" r="12" fill="url(#paint0_linear_778_28867)" />
-											<path d="M7.5 12.5L10.1471 15L16.5 9" stroke="white" strokeWidth="1.5" stroke-linecap="round" />
+											<path d="M7.5 12.5L10.1471 15L16.5 9" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
 											<defs>
 												<linearGradient id="paint0_linear_778_28867" x1="4.37288" y1="6.24184e-07" x2="25.3745" y2="4.07592" gradientUnits="userSpaceOnUse">
-													<stop stop-color="#59DF74" />
-													<stop offset="1" stop-color="#15C0B6" />
+													<stop stopColor="#59DF74" />
+													<stop offset="1" stopColor="#15C0B6" />
 												</linearGradient>
 											</defs>
 										</svg>
@@ -274,11 +292,11 @@ function Homepage() {
 									<span>
 										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
 											<circle cx="12" cy="12" r="12" fill="url(#paint0_linear_778_28867)" />
-											<path d="M7.5 12.5L10.1471 15L16.5 9" stroke="white" strokeWidth="1.5" stroke-linecap="round" />
+											<path d="M7.5 12.5L10.1471 15L16.5 9" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
 											<defs>
 												<linearGradient id="paint0_linear_778_28867" x1="4.37288" y1="6.24184e-07" x2="25.3745" y2="4.07592" gradientUnits="userSpaceOnUse">
-													<stop stop-color="#59DF74" />
-													<stop offset="1" stop-color="#15C0B6" />
+													<stop stopColor="#59DF74" />
+													<stop offset="1" stopColor="#15C0B6" />
 												</linearGradient>
 											</defs>
 										</svg>
@@ -289,11 +307,11 @@ function Homepage() {
 									<span>
 										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
 											<circle cx="12" cy="12" r="12" fill="url(#paint0_linear_778_28867)" />
-											<path d="M7.5 12.5L10.1471 15L16.5 9" stroke="white" strokeWidth="1.5" stroke-linecap="round" />
+											<path d="M7.5 12.5L10.1471 15L16.5 9" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
 											<defs>
 												<linearGradient id="paint0_linear_778_28867" x1="4.37288" y1="6.24184e-07" x2="25.3745" y2="4.07592" gradientUnits="userSpaceOnUse">
-													<stop stop-color="#59DF74" />
-													<stop offset="1" stop-color="#15C0B6" />
+													<stop stopColor="#59DF74" />
+													<stop offset="1" stopColor="#15C0B6" />
 												</linearGradient>
 											</defs>
 										</svg>
@@ -302,11 +320,11 @@ function Homepage() {
 								</li>
 							</ul>
 						</div>
-							
+
 						<div className="img">
-							<Image className="img-fluid" src={FinessHand} alt="Fitness Hand Image"/>
-						</div>	
-					</div>	
+							<Image className="img-fluid" src={FinessHand} alt="Fitness Hand Image" />
+						</div>
+					</div>
 				</Container>
 			</section>
 
@@ -344,7 +362,7 @@ function Homepage() {
 									<p>Get a free expert consultation for personal guidance and start your health journey with ToneOp Fit.</p>
 								</div>
 							</Col>
-							<Col xxl="6" md="12"xs="12">
+							<Col xxl="6" md="12" xs="12">
 								<div className="how_to_use_img">
 									<div className="step_board">
 										<div className="svg_icons">
@@ -363,18 +381,16 @@ function Homepage() {
 										</div>
 										<p>3 Simple Steps to your Goal</p>
 									</div>
-									<Image className="img-fluid" src={HowToUseImg} alt="ow to Use"/>
+									<Image className="img-fluid" src={HowToUseImg} alt="ow to Use" />
 								</div>
 							</Col>
 						</Row>
 						<Row>
 							<Col xxl="12" lg="12" md="12" xs="12">
-								<div className="common_button">
-									<button className="btn btn-primary global_button">Free Consultation</button>
-								</div>
+								<HowUse />
 							</Col>
 						</Row>
-					</div>	
+					</div>
 				</Container>
 			</section>
 
@@ -384,14 +400,14 @@ function Homepage() {
 						<Col xxl="6" lg="12" xs="12">
 							<div className="transform_health_heading">
 								<h4>No More Excuses! Let’s Transform Your Health Together!</h4>
-								<button className="btn btn-primary global_button">Download Our App</button>
+								<NavLink className="btn btn-primary global_button" to="https://play.google.com/store/apps/details?id=com.toneop.mobile&hl=en&gl=US" target="_blank">Download Our App</NavLink>
 							</div>
 						</Col>
 						<Col xxl="6" lg="12" xs="12">
 							<div className="transform_health_paragraph">
 								<div className="content">
 									<p>Get ready to witness the best version of yourself with the most experienced team of diet, fitness and yoga coaches. Track your progress, log your meals, and stay on track with unlimited expert consultations.</p>
-								</div>	
+								</div>
 								<div className="achievements">
 									<div className="content_1">
 										<h4>50k+</h4>
@@ -414,8 +430,8 @@ function Homepage() {
 							<div className="transform_1">
 								<span>
 									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-										<path d="M10 22H14C19 22 21 20 21 15V9C21 4 19 2 14 2H10C5 2 3 4 3 9V15C3 20 5 22 10 22Z" stroke="#15C06E" strokeWidth="1.5" stroke-linecap="round" stroke-linejoin="round" />
-										<path d="M17.25 8.28998C14.26 5.62998 9.74 5.62998 6.75 8.28998L8.93 11.79C10.68 10.23 13.32 10.23 15.07 11.79L17.25 8.28998Z" stroke="#15C06E" strokeWidth="1.5" stroke-linecap="round" stroke-linejoin="round" />
+										<path d="M10 22H14C19 22 21 20 21 15V9C21 4 19 2 14 2H10C5 2 3 4 3 9V15C3 20 5 22 10 22Z" stroke="#15C06E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+										<path d="M17.25 8.28998C14.26 5.62998 9.74 5.62998 6.75 8.28998L8.93 11.79C10.68 10.23 13.32 10.23 15.07 11.79L17.25 8.28998Z" stroke="#15C06E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
 									</svg>
 								</span>
 								<span>
@@ -426,8 +442,8 @@ function Homepage() {
 							<div className="transform_1">
 								<span>
 									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-										<path d="M16.2 10C16.2 10 16 11 13 15C10.1 18.8 14.3 21.6 14.8 22H14.9C15.5 21.5 23.1 16.7 16.2 10Z" stroke="#15C06E" strokeWidth="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-										<path d="M13.8001 7.80001C13.8001 5.50001 12.9001 3.40001 12.0001 2.20001C11.7001 1.90001 11.2001 2.00001 11.1001 2.40001C10.7001 3.90001 9.50005 7.10001 6.60005 10.9C2.90005 15.7 6.30005 20.9 9.80005 21.9C11.7001 22.4 9.30005 20.9 9.00005 17.8C8.70005 13.9 13.8001 11 13.8001 7.80001Z" stroke="#15C06E" strokeWidth="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+										<path d="M16.2 10C16.2 10 16 11 13 15C10.1 18.8 14.3 21.6 14.8 22H14.9C15.5 21.5 23.1 16.7 16.2 10Z" stroke="#15C06E" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+										<path d="M13.8001 7.80001C13.8001 5.50001 12.9001 3.40001 12.0001 2.20001C11.7001 1.90001 11.2001 2.00001 11.1001 2.40001C10.7001 3.90001 9.50005 7.10001 6.60005 10.9C2.90005 15.7 6.30005 20.9 9.80005 21.9C11.7001 22.4 9.30005 20.9 9.00005 17.8C8.70005 13.9 13.8001 11 13.8001 7.80001Z" stroke="#15C06E" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
 									</svg>
 								</span>
 								<span>
@@ -438,13 +454,13 @@ function Homepage() {
 							<div className="transform_1">
 								<span>
 									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-										<path d="M8 2V5" stroke="#15C06E" strokeWidth="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-										<path d="M16 2V5" stroke="#15C06E" strokeWidth="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-										<path d="M3.5 9.08997H20.5" stroke="#15C06E" strokeWidth="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-										<path d="M21 8.5V17C21 20 19.5 22 16 22H8C4.5 22 3 20 3 17V8.5C3 5.5 4.5 3.5 8 3.5H16C19.5 3.5 21 5.5 21 8.5Z" stroke="#15C06E" strokeWidth="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-										<path d="M11.9955 13.7H12.0045" stroke="#15C06E" strokeWidth="2" stroke-linecap="round" stroke-linejoin="round" />
-										<path d="M8.29431 13.7H8.30329" stroke="#15C06E" strokeWidth="2" stroke-linecap="round" stroke-linejoin="round" />
-										<path d="M8.29431 16.7H8.30329" stroke="#15C06E" strokeWidth="2" stroke-linecap="round" stroke-linejoin="round" />
+										<path d="M8 2V5" stroke="#15C06E" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+										<path d="M16 2V5" stroke="#15C06E" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+										<path d="M3.5 9.08997H20.5" stroke="#15C06E" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+										<path d="M21 8.5V17C21 20 19.5 22 16 22H8C4.5 22 3 20 3 17V8.5C3 5.5 4.5 3.5 8 3.5H16C19.5 3.5 21 5.5 21 8.5Z" stroke="#15C06E" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+										<path d="M11.9955 13.7H12.0045" stroke="#15C06E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+										<path d="M8.29431 13.7H8.30329" stroke="#15C06E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+										<path d="M8.29431 16.7H8.30329" stroke="#15C06E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
 									</svg>
 								</span>
 								<span>
@@ -461,7 +477,7 @@ function Homepage() {
 									src={FitnessVideo}
 									allowFullScreen
 								/>
-							</div>	
+							</div>
 						</Col>
 					</Row>
 				</Container>
@@ -481,7 +497,7 @@ function Homepage() {
 					</svg>
 				</div>
 				<div className="ratings">
-					<Image className="img-fluid" src={RatingImg} alt="rating image"/> 
+					<Image className="img-fluid" src={RatingImg} alt="rating image" />
 				</div>
 				<Container>
 					<Row>
@@ -489,38 +505,38 @@ function Homepage() {
 							<div className="videos_column">
 								<div className="first_column">
 									<div className="embed-responsive embed-responsive-16by9 first_video">
-										<video class="embed-responsive-item" controls  muted src={FitnessVideo1} type="video/mp4" allowFullScreen/>
-									</div>	
+										<video class="embed-responsive-item" controls muted src={FitnessVideo1} type="video/mp4" allowFullScreen />
+									</div>
 								</div>
 								<div className="first_column">
 									<div className="second_video">
-										<video class="embed-responsive-item" controls  muted src={FitnessVideo2} type="video/mp4" />
+										<video class="embed-responsive-item" controls muted src={FitnessVideo2} type="video/mp4" />
 									</div>
 									<div className="third_video">
-										<video class="embed-responsive-item" controls  muted src={FitnessVideo4} type="video/mp4" />
-									</div>	
+										<video class="embed-responsive-item" controls muted src={FitnessVideo4} type="video/mp4" />
+									</div>
 								</div>
 								<div className="first_column">
 									<div className="forth_video">
-										<video class="embed-responsive-item" controls  muted src={FitnessVideo6} type="video/mp4" />
-									</div>	
+										<video class="embed-responsive-item" controls muted src={FitnessVideo6} type="video/mp4" />
+									</div>
 								</div>
 								<div className="first_column">
 									<div className="fifth_video">
-										<video class="embed-responsive-item" controls  muted src={FitnessVideo5} type="video/mp4" />
-									</div>	
+										<video class="embed-responsive-item" controls muted src={FitnessVideo5} type="video/mp4" />
+									</div>
 									<div className="sixth_video">
-										<video class="embed-responsive-item" controls  muted src={FitnessVideo2} type="video/mp4" />
-									</div>	
+										<video class="embed-responsive-item" controls muted src={FitnessVideo2} type="video/mp4" />
+									</div>
 								</div>
 								<div className="first_column">
 									<div className="seventh_video">
-										<video class="embed-responsive-item" controls  muted src={FitnessVideo7} type="video/mp4" />
-									</div>	
+										<video class="embed-responsive-item" controls muted src={FitnessVideo7} type="video/mp4" />
+									</div>
 								</div>
 							</div>
 						</Col>
-					</Row>	
+					</Row>
 				</Container>
 			</section>
 
@@ -563,9 +579,7 @@ function Homepage() {
 					</Row>
 					<Row>
 						<Col xxl="12" lg="12" sm="12" xs="12">
-							<div className="common_button">
-								<button className="btn btn-primary global_button">Book Consultation</button>
-							</div>
+							<BookConsultation />
 						</Col>
 					</Row>
 				</Container>
@@ -576,7 +590,7 @@ function Homepage() {
 					<Row>
 						<Col xxl="6" lg="12" md="12" xs="12">
 							<div className="app_links_image">
-								<Image className="img-fluid" src={AppLinks} alt="Image With Links"/>
+								<Image className="img-fluid" src={AppLinks} alt="Image With Links" />
 							</div>
 						</Col>
 						<Col xxl="6" lg="12" md="12" xs="12">
@@ -587,8 +601,8 @@ function Homepage() {
 									<li>
 										<span>
 											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-												<path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke="#15C06E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-												<path d="M7.75 11.9999L10.58 14.8299L16.25 9.16992" stroke="#15C06E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+												<path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke="#15C06E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+												<path d="M7.75 11.9999L10.58 14.8299L16.25 9.16992" stroke="#15C06E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
 											</svg>
 										</span>
 										<span>Personalised Diet Plans</span>
@@ -596,8 +610,8 @@ function Homepage() {
 									<li>
 										<span>
 											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-												<path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke="#15C06E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-												<path d="M7.75 11.9999L10.58 14.8299L16.25 9.16992" stroke="#15C06E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+												<path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke="#15C06E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+												<path d="M7.75 11.9999L10.58 14.8299L16.25 9.16992" stroke="#15C06E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
 											</svg>
 										</span>
 										<span>Home & Gym Workouts</span>
@@ -605,8 +619,8 @@ function Homepage() {
 									<li>
 										<span>
 											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-												<path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke="#15C06E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-												<path d="M7.75 11.9999L10.58 14.8299L16.25 9.16992" stroke="#15C06E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+												<path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke="#15C06E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+												<path d="M7.75 11.9999L10.58 14.8299L16.25 9.16992" stroke="#15C06E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
 											</svg>
 										</span>
 										<span>Live Yoga Sessions</span>
@@ -614,8 +628,8 @@ function Homepage() {
 									<li>
 										<span>
 											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-												<path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke="#15C06E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-												<path d="M7.75 11.9999L10.58 14.8299L16.25 9.16992" stroke="#15C06E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+												<path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke="#15C06E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+												<path d="M7.75 11.9999L10.58 14.8299L16.25 9.16992" stroke="#15C06E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
 											</svg>
 										</span>
 										<span>3 Dedicated Coaches</span>
@@ -623,8 +637,8 @@ function Homepage() {
 									<li>
 										<span>
 											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-												<path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke="#15C06E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-												<path d="M7.75 11.9999L10.58 14.8299L16.25 9.16992" stroke="#15C06E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+												<path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke="#15C06E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+												<path d="M7.75 11.9999L10.58 14.8299L16.25 9.16992" stroke="#15C06E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
 											</svg>
 										</span>
 										<span>Premium Health Trackers</span>
@@ -632,26 +646,26 @@ function Homepage() {
 									<li>
 										<span>
 											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-												<path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke="#15C06E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-												<path d="M7.75 11.9999L10.58 14.8299L16.25 9.16992" stroke="#15C06E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+												<path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke="#15C06E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+												<path d="M7.75 11.9999L10.58 14.8299L16.25 9.16992" stroke="#15C06E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
 											</svg>
 										</span>
 										<span>Unlimited Consultations</span>
 									</li>
 								</ul>
-								<siv className="google_apple_links">
+								<div className="google_apple_links">
 									<p>Download our app</p>
 									<span>
 										<NavLink to="https://play.google.com/store/apps/details?id=com.toneop.mobile&hl=en&gl=US" target="_blank">
-											<Image className="img-fluid" src={AppStore} alt="AppStore"/>
+											<Image className="img-fluid" src={AppStore} alt="AppStore" />
 										</NavLink>
 										<NavLink to="https://apps.apple.com/in/app/toneop-health-and-fitness-app/id1586794292" target="_blank">
 											<Image className="img-fluid" src={GooglePlay} alt="AppStore" />
 										</NavLink>
 									</span>
-								</siv>
+								</div>
 							</div>
-						</Col> 
+						</Col>
 					</Row>
 				</Container>
 			</section>
@@ -673,7 +687,7 @@ function Homepage() {
 					<Row>
 						<Col xxl="2" lg="6" md="12" xs="12">
 							<div className="feature_1">
-								<Image className="img-fluid" src={Feature1} alt='featureImage1'/>
+								<Image className="img-fluid" src={Feature1} alt='featureImage1' />
 							</div>
 						</Col>
 						<Col xxl="2" lg="6" md="12" xs="12">
@@ -727,247 +741,36 @@ function Homepage() {
 				</div>
 				<Container>
 					<Row>
-						<Col xxl="6" lg="12" md="12" xs="12">
-							<div className="health_question">
-								<h4>How many days per week do you engage in moderate-intensity exercise like brisk walking or jogging?</h4>
-								<Form>
-									{['radio'].map((type) => (
-										<div key={`inline-${type}`} className="form_check_wrap">
-											<Form.Check
-												inline
-												label="0-1 days"
-												name="group1"
-												type={type}
-												id={`inline-${type}-1`}
-											/>
-											<Form.Check
-												inline
-												label="4-5 days"
-												name="group1"
-												type={type}
-												id={`inline-${type}-2`}
-											/>
-											<Form.Check
-												inline
-												label="2-3 days"
-												name="group1"
-												type={type}
-												id={`inline-${type}-3`}
-											/>
-											<Form.Check
-												inline
-												label="6-7 days"
-												name="group1"
-												type={type}
-												id={`inline-${type}-4`}
-											/>
-										</div>
-									))}
-								</Form>
-							</div>
-						</Col>
-						<Col xxl="6" lg="12" md="12" xs="12">
-							<div className="health_question">
-								<h4>How often do you consume a balanced meal with a variety of fruits, vegetables, proteins, and whole grains?</h4>
-								<Form>
-									{['radio'].map((type) => (
-										<div key={`inline-${type}`} className="form_check_wrap">
-											<Form.Check
-												inline
-												label="Rarely"
-												name="group1"
-												type={type}
-												id={`inline-${type}-5`}
-											/>
-											<Form.Check
-												inline
-												label="Most of the time"
-												name="group1"
-												type={type}
-												id={`inline-${type}-6`}
-											/>
-											<Form.Check
-												inline
-												label="Occasionally"
-												name="group1"
-												type={type}
-												id={`inline-${type}-7`}
-											/>
-											<Form.Check
-												inline
-												label="Always"
-												name="group1"
-												type={type}
-												id={`inline-${type}-8`}
-											/>
-										</div>
-									))}
-								</Form>
-							</div>
-						</Col>
-					</Row>
-					<Row>
-						<Col xxl="6" lg="12" md="12" xs="12">
-							<div className="health_question">
-								<h4>How many days per week do you engage in moderate-intensity exercise like brisk walking or jogging?</h4>
-								<Form>
-									{['radio'].map((type) => (
-										<div key={`inline-${type}`} className="form_check_wrap">
-											<Form.Check
-												inline
-												label="0-1 days"
-												name="group1"
-												type={type}
-												id={`inline-${type}-9`}
-											/>
-											<Form.Check
-												inline
-												label="4-5 days"
-												name="group1"
-												type={type}
-												id={`inline-${type}-10`}
-											/>
-											<Form.Check
-												inline
-												label="2-3 days"
-												name="group1"
-												type={type}
-												id={`inline-${type}-11`}
-											/>
-											<Form.Check
-												inline
-												label="6-7 days"
-												name="group1"
-												type={type}
-												id={`inline-${type}-12`}
-											/>
-										</div>
-									))}
-								</Form>
-							</div>
-						</Col>
-						<Col xxl="6" lg="12" md="12" xs="12">
-							<div className="health_question">
-								<h4>How often do you consume a balanced meal with a variety of fruits, vegetables, proteins, and whole grains?</h4>
-								<Form>
-									{['radio'].map((type) => (
-										<div key={`inline-${type}`} className="form_check_wrap">
-											<Form.Check
-												inline
-												label="Rarely"
-												name="group1"
-												type={type}
-												id={`inline-${type}-13`}
-											/>
-											<Form.Check
-												inline
-												label="Most of the time"
-												name="group1"
-												type={type}
-												id={`inline-${type}-14`}
-											/>
-											<Form.Check
-												inline
-												label="Occasionally"
-												name="group1"
-												type={type}
-												id={`inline-${type}-15`}
-											/>
-											<Form.Check
-												inline
-												label="Always"
-												name="group1"
-												type={type}
-												id={`inline-${type}-16`}
-											/>
-										</div>
-									))}
-								</Form>
-							</div>
-						</Col>
-					</Row>
-					<Row>
-						<Col xxl="6" lg="12" md="12" xs="12">
-							<div className="health_question">
-								<h4>How many days per week do you engage in moderate-intensity exercise like brisk walking or jogging?</h4>
-								<Form>
-									{['radio'].map((type) => (
-										<div key={`inline-${type}`} className="form_check_wrap">
-											<Form.Check
-												inline
-												label="0-1 days"
-												name="group1"
-												type={type}
-												id={`inline-${type}-17`}
-											/>
-											<Form.Check
-												inline
-												label="4-5 days"
-												name="group1"
-												type={type}
-												id={`inline-${type}-18`}
-											/>
-											<Form.Check
-												inline
-												label="2-3 days"
-												name="group1"
-												type={type}
-												id={`inline-${type}-19`}
-											/>
-											<Form.Check
-												inline
-												label="6-7 days"
-												name="group1"
-												type={type}
-												id={`inline-${type}-20`}
-											/>
-										</div>
-									))}
-								</Form>
-							</div>
-						</Col>
-						<Col xxl="6" lg="12" md="12" xs="12">
-							<div className="health_question">
-								<h4>How often do you consume a balanced meal with a variety of fruits, vegetables, proteins, and whole grains?</h4>
-								<Form>
-									{['radio'].map((type) => (
-										<div key={`inline-${type}`} className="form_check_wrap">
-											<Form.Check
-												inline
-												label="Rarely"
-												name="group1"
-												type={type}
-												id={`inline-${type}-21`}
-											/>
-											<Form.Check
-												inline
-												label="Most of the time"
-												name="group1"
-												type={type}
-												id={`inline-${type}-22`}
-											/>
-											<Form.Check
-												inline
-												label="Occasionally"
-												name="group1"
-												type={type}
-												id={`inline-${type}-23`}
-											/>
-											<Form.Check
-												inline
-												label="Always"
-												name="group1"
-												type={type}
-												id={`inline-${type}-24`}
-											/>
-										</div>
-									))}
-								</Form>
-							</div>
-						</Col>
-					</Row>
-					<Row>
 						<Col xxl="12" lg="12" md="12" xs="12">
+							<div className="health_score_section_wrap">
+								{HealthScoreData.map((score, i) =>
+									<div key={i} className="health_question">
+										<h4>{score.heading}</h4>
+										<Form >
+											{['radio'].map((type) => (
+												<div key={`inline-${type}`} className="form_check_wrap">
+													{Object.entries(score).map(([key, value]) => {
+														if (key.startsWith('label')) {
+															const labelNumber = key.replace('label', '');
+															return (
+																<Form.Check
+																	key={labelNumber}
+																	inline
+																	label={value}
+																	name={`group${i + 1}`}
+																	type={type}
+																	id={`inline-${type}-${score.Id}-${labelNumber}`}
+																/>
+															);
+														}
+														return null;
+													})}
+												</div>
+											))}
+										</Form>
+									</div>
+								)}
+							</div>
 							<div className="common_button">
 								<button className="btn btn-primary global_button">Calculate Now</button>
 							</div>
@@ -975,6 +778,48 @@ function Homepage() {
 					</Row>
 				</Container>
 			</section>
+
+			<section className="contact_form">
+				<Container>
+					<Row>
+						<Col xxl="12" lg="12" md="12" xs="12">
+							<div className="banner_with_contact">
+								<div className="contact_form_text">
+									<div className="text">
+										<h4>Not sure of the Right Plan for You</h4>
+										<p>It's never too late to start a healthy lifestyle! Book a 1:1 consultation with our health expert to achieve your desired health.</p>
+									</div>
+									<div className="contact_form_section">
+										<Form noValidate validated={validated} onSubmit={handleSubmit}>
+											<h4>Get in touch with us!</h4>
+											<Form.Group md="4" controlId="validationCustom01">
+												<Form.Control
+													required
+													type="text"
+													placeholder="Name"
+												/>
+												<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+											</Form.Group>
+											<Form.Group md="4" controlId="validationCustom02">
+												<Form.Control
+													required
+													type="number"
+													placeholder="Phone Number"
+												/>
+												<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+											</Form.Group>
+											<Button type="submit" className="global_button">Get a Call Back</Button>
+										</Form>
+									</div>
+								</div>
+								<Image className="img-fluid" src={BannerContactSection} alt="Banner Image Section" />
+							</div>
+						</Col>
+					</Row>
+				</Container>
+			</section>
+
+			<Footer />
 		</>
 	)
 }

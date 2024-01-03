@@ -1,0 +1,50 @@
+export const HealthScoreData = [
+    {
+        heading:'How many days per week do you engage in moderate-intensity exercise like brisk walking or jogging?',
+        labelFirst:'0-1 Days',
+        labelSecond: '4-5 Days',
+        labelThird: '2-3 days',
+        labelForth: '6-7 days',
+        Id:'unique-id-1',
+    },
+    {
+        heading: 'How often do you consume a balanced meal with a variety of fruits, vegetables, proteins, and whole grains?',
+        labelFirst: 'Rarely',
+        labelSecond: 'Occasionally',
+        labelThird: 'Most of the time',
+        labelForth: 'Always',
+        Id: 'unique-id-2',
+    },
+    {
+        heading: 'On a scale of 1 to 10, with 10 being the most stressed, how would you rate your stress levels?',
+        labelFirst: '1-3',
+        labelSecond: '7-8',
+        labelThird: '4-6',
+        labelForth: '9-10',
+        Id: 'unique-id-3',
+    },
+    {
+        heading: 'How many hours of sleep do you get on a typical night?',
+        labelFirst: '< 6 hours',
+        labelSecond: '7-8 hours',
+        labelThird: '6-7 hours',
+        labelForth: '> 8 hours',
+        Id: 'unique-id-4',
+    },
+    {
+        heading: 'How many glasses of water do you typically drink in a day?',
+        labelFirst: '< 4 glasses',
+        labelSecond: '6-8 glasses',
+        labelThird: '4-6 glasses',
+        labelForth: '> 8 glasses',
+        Id: 'unique-id-5',
+    },
+    {
+        heading: 'On a scale of 1 to 10, how would you rate your overall sense of well-being?',
+        labelFirst: '1-3',
+        labelSecond: '7-8',
+        labelThird: '4-6',
+        labelForth: '9-10',
+        Id: 'unique-id-6',
+    }
+]

@@ -1,0 +1,197 @@
+$Primary_Fit_Gradient: linear-gradient(101deg, rgba(89, 223, 116, 0.1) 15.26%, rgba(21, 192, 182, 0.1) 0.1%);
+
+.modal-content{
+    .modal-header{
+        border-bottom: none;
+        .modal-title{
+            width: 100%;
+            text-align: center;
+            img{
+                width: 100%;
+                height: 100%;
+                max-width: 147px;
+                max-height: 62px;
+                object-fit: contain;
+            }   
+        }
+    }    
+    .modal-body{
+        border-bottom: none;
+        &.modal_body_thankyou{
+            background: #E6F8EF;
+            border-radius: 20px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+            padding: 30px;
+            min-height: 490px;
+            .thankyou_content{
+                h4{
+                    margin: 20px 0;
+                    font-size: 44px;
+                    color: #15C06E;
+                }
+                p{
+                    color: #999;
+                    font-size: 18px;
+                }
+            }
+            .back_link{
+                a{
+                    h4{
+                        font-size: 14px;
+                        color: #15C06E;
+                    }
+                }
+            }
+        }
+        .modal_heading{
+            h4{
+                font-size: 20px;
+                color: #666;
+            }
+        }
+        .modal_body_content{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            max-height: 420px;
+            overflow-y: auto;
+            flex-direction: column;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            &::-webkit-scrollbar {
+                    display: none;
+            }
+                        form {
+                            background: #fff;
+                            border-radius: 20px;
+                            width: 100%;
+                            box-shadow: -111px 12px 250px 0px rgba(0, 0, 0, 0.07);
+            
+                            .form-control {
+                                width: 100%;
+                                min-height: 56px;
+                                background: #f9f9f9;
+                                margin: 30px 0;
+                                border: none;
+                            }
+
+                        .common_button {
+                            width: 100%;
+                            text-align: center;
+
+                            .global_button {
+                                min-width: 225px;
+                                padding: 20px;
+                            }
+                        }
+            
+                            button {
+                                width: 100%;
+                                max-width: 219px;
+                                min-height: 70px;
+                                margin: 0 auto;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                            }
+                        }
+            .nav-tabs {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                .nav-item {
+                    margin-top: 20px;
+                    .nav-link {
+                        border: none;
+                        box-shadow: none;
+                        margin-bottom: 0px;
+                        padding: 10px 20px 0px 20px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        border: 1px solid #e8e8e8;
+                        border-radius: 12px;
+                        &.active{
+                            border: 1px solid #15C06E;
+                            box-shadow: none;
+                            background: $Primary_Fit_Gradient;
+                            border-radius: 12px;
+                            .content {
+                                h4 {
+                                    color: #15C06E;
+                                }
+                            }
+                            .image {
+                                img {
+                                    filter: grayscale(0%);
+                                    -webkit-filter: grayscale(0%);
+                                    -moz-filter: grayscale(0%);
+                                    -o-filter: grayscale(0%);
+                                }
+                            }
+                        }    
+                        &:hover {
+                            border: 1px solid #15C06E;
+                            box-shadow: none;
+                            border-radius: 12px;
+                        }
+                        &:focus-visible {
+                            border: 1px solid #15C06E;
+                            box-shadow: none;
+                            border-radius: 12px;
+                        }
+                        .content{
+                            h4{
+                                font-size: 18px;
+                                color: #222;
+                            }
+                            p{
+                                color: #999;
+                                font-size: 12px;
+                                margin-top: 7px;
+                            }
+                        }
+                        .image{
+                            img {
+                                width: 81px;
+                                height: 61px;
+                                object-fit: contain;
+                                object-position: top center;
+                                filter: grayscale(100%);
+                                -webkit-filter: grayscale(100%);
+                                -moz-filter: grayscale(100%);
+                                -o-filter: grayscale(100%);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .modal-footer {
+        border-top: none;
+        display: flex;
+        justify-content: space-between;
+        .common_button {
+                width: 100%;
+                text-align: center;
+        
+                .global_button {
+                    min-width: 225px;
+                    padding: 20px;
+                }
+            }
+        .skip_button {
+            background: transparent;
+            border: none;
+            color: #000;
+        }
+        .global_button{
+            padding: 10px 30px;
+        }
+    }
+}    

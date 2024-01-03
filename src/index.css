@@ -40,11 +40,13 @@ p{
   font-family: 'Poppins', sans-serif;
 }
 
-.container{
-  width: 100%;
-  max-width: 100%;
-  padding: 0 160px;
-}
+@media(min-width: 1140px) and (max-width: 1920px){
+  .container{
+    width: 100%;
+    max-width: 100%;
+    padding: 0 160px;
+  }
+}  
 
 .heading{
   margin-top: 50px;
@@ -53,4 +55,26 @@ p{
 video{
   width: 100% !important;
   height: 100% !important;
+}
+
+.form-check-input:checked {
+  background-color: #15C06E;
+  border-color: #15C06E;
+}
+
+.form-check-input:checked + label{
+  color: #15C06E;
+}
+
+.form-check-input{
+  cursor: pointer;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
 }
