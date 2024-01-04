@@ -977,3 +977,286 @@ $Primary_Fit_Gradient: linear-gradient(101deg, rgba(89, 223, 116, 0.1) 15.26%, r
         }
     }    
 }
+
+
+@media(min-width: 320px) and (max-width: 991px){
+    .testimonials .numbers ul {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 0;
+    }
+    .testimonials .numbers ul li h4 {
+        font-size: 28px;
+        color: #15C06E;
+    }
+    .testimonials {
+        padding: 50px 0 50px;
+    }
+    .testimonials .common_button {
+        margin-top: 0;
+    }
+    .health_score .common_button {
+        margin-top: 0;
+    }
+    .health_score .health_score_section_wrap .health_wrap {
+        flex-direction: column;
+    }
+    .health_score .health_score_section_wrap .health_question {
+        width: 100%;
+        padding: 20px 20px;
+    }
+    .health_score .form_check_wrap {
+        columns: 2;
+    }
+    .best_transformation .videos_column {
+        flex-direction: column;
+    }
+    .best_transformation .videos_column .first_video {
+        max-width: 100%;
+        height: 100%;
+    }
+    .best_transformation .videos_column .second_video {
+        max-width: 100%;
+        height: 100%;
+    }
+    .best_transformation .videos_column .third_video {
+        max-width: 100%;
+        height: 100%;
+        margin-top: 30px;
+    }
+    .best_transformation .videos_column .fifth_video {
+        max-width: 100%;
+        height: 100%;
+    }
+    .best_transformation .videos_column .sixth_video {
+        max-width: 100%;
+        height: 100%;
+        margin-top: 30px;
+    }
+    .best_transformation .videos_column .seventh_video {
+        max-width: 100%;
+        height: 100%;
+    }
+    .best_transformation .videos_column .forth_video {
+        max-width: 100%;
+        height: 100%;
+        margin-top: 0;
+    }
+    .app_links .app_links_content ul {
+        columns: 1;
+        -webkit-columns: 1;
+        -moz-columns: 1;
+        -o-columns: 1;
+    }
+    .contact_form .banner_with_contact .contact_form_text {
+        margin-top: 0;
+        min-height: 100%;
+        flex-direction: column;
+    }
+    .contact_form .banner_with_contact .contact_form_text .text {
+        width: 100%;
+        flex-direction: column;
+        padding: 30px;
+    }
+    .contact_form .banner_with_contact .contact_form_text .contact_form_section {
+        width: 100%;
+    }
+    .contact_form .banner_with_contact .contact_form_text .contact_form_section form {
+        width: 100%;
+        margin-top: 0;
+    }
+    .our_ultimate_plans .ultimate_plan_column_1 .outUltimateItems {
+        width: 100%;
+        flex-direction: column;
+    }
+    .our_ultimate_plans .ultimate_plan_column_1 .outUltimateItems .item {
+        width: 100%;
+    }
+    .transform_body .transform_health_paragraph .achievements {
+        flex-direction: column;
+        align-items: center;
+    }
+    .content_1 {
+        text-align: center;
+        margin: 20px 0;
+    }
+    .fitness_in_hands .fitness_hands_column {
+        flex-direction: column;
+    }
+    .fitness_in_hands .fitness_hands_column .content {
+        width: 100%;
+        padding: 30px;
+    }
+    .fitness_in_hands .fitness_hands_column .img {
+        width: 100%;
+    }
+    .banner_section .banner_inner_section .content_section {
+        width: 100%;
+        height: 100%;
+        min-height: 100%;
+        padding: 0;
+    }
+    .banner_section .banner_inner_section .content_section h1 {
+        font-size: 28px;
+        text-align: center;
+    }
+    .banner_section .banner_inner_section .content_section label {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        margin: 30px auto 10px;
+    }
+    .banner_section .banner_inner_section .content_section p {
+        color: #999999;
+        margin-bottom: 20px;
+        font-size: 12px;
+        text-align: center;
+    }
+    .banner_section .banner_inner_section .content_section .enter_mobile_button .input_button {
+        max-width: 104px;
+        height: 42px;
+        font-size: 12px;
+        right: 26px;
+        top: 5px;
+    }
+    .banner_section .banner_inner_section .content_section .enter_mobile_button input.form-control {
+        font-size: 14px;
+        color: #999999;
+        max-width: 313px;
+        max-height: 52px;
+        height: 100%;
+    }
+    .banner_section .banner_inner_section .content_section .enter_mobile_button {
+        justify-content: center;
+    }
+    .banner_section .banner_inner_section .img_section img {
+        height: 100%;
+        min-height: auto;
+    }
+    .fitness_in_hands .fitness_hands_column .content h4 {
+        font-size: 32px;
+        font-weight: 700;
+    }
+    .fitness_in_hands .fitness_hands_column .content ul li {
+        display: flex;
+    }
+    .banner_section .banner_inner_section .img_section .step_board {
+        max-width: 128px;
+        min-height: 60px;
+        left: 30px;
+    }
+    .banner_section .banner_inner_section .img_section .step_board p {
+        font-size: 10px;
+    }
+    .heading h4{
+        font-size: 26px;
+    }
+    .heading svg {
+        left: 0;
+        max-width: 112px;
+        height: 7px;
+    }
+    .fitness_in_hands .fitness_hands_column .content h4 {
+        font-size: 28px;
+    }
+    .transform_body .transform_health_heading h4 {
+        font-size: 32px;
+    }
+    .transform_health_paragraph .content p {
+        font-size: 12px;
+        margin-top: 20px;
+    }
+    .banner_section .banner_inner_section .img_section {
+        min-height: auto;
+    }
+    .app_links .app_links_content {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        flex-direction: column;
+    }
+    .app_links .app_links_image {
+        margin-top: 0;
+    }
+    .app_links .app_links_content ul {
+        margin: 0;
+        padding: 0;
+    }
+    .app_links {
+        padding-bottom: 100px;
+    }
+    .feature_section .feature_1 {
+        margin-bottom: 25px;
+    }
+    .feature_section .text-dec p {
+        font-size: 12px;
+    }
+    .feature_section {
+        margin-bottom: 20px;
+    }
+    .health_score .form_check_wrap .form-check-inline label {
+        font-size: 14px;
+    }
+    .health_score .form_check_wrap .form-check-inline {
+        width: 100%;
+    }
+    .health_score .health_score_section_wrap .health_question h4 {
+        font-size: 14px;
+        margin-bottom: 30px;
+    }
+    footer .footer_inner {
+        flex-direction: column;
+        text-align: center;
+    }
+    footer .footer_inner .follow_logo_icons span a {
+        margin: 0 13px 19px 9px;
+        width: 48px;
+        height: 48px;
+        padding: 10px;
+        display: inline-block;
+    }
+    footer .footer_inner .follow_logo_icons h4 {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    footer .footer_bottom p {
+        font-size: 12px;
+    }
+    .app_links {
+        margin: 0;
+        min-height: auto;
+    }
+    .app_links .app_links_content h4 {
+        font-size: 32px;
+        margin-top: 40px;
+    }
+    .testimonials .numbers ul li {
+        text-align: center;
+        width: 33.33%;
+        margin-bottom: 30px;
+    }
+    .our_coaches .coach_section {
+        margin: 20px 0;
+    }
+    .our_coaches .common_button {
+        margin-top: 40px;
+    }
+    .customer_experience .slick-prev {
+        left: 55% !important;
+    }
+    .customer_experience .slick-next {
+        right: 52% !important;
+    }
+    .our_coaches {
+        padding: 10px 0;
+    }
+    .our_coaches .coach_section .coach_content h5 {
+        font-size: 14px;
+    }
+    .our_coaches .coach_section .coach_content p {
+        font-size: 10px;
+    }
+}

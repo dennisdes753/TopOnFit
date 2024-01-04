@@ -147,7 +147,7 @@ function Homepage() {
 				</div>
 				<Container>
 					<Row>
-						<Col xxl="3" lg="6" md="12" sm="12" xs="12">
+						<Col xxl="3" lg="6" md="12" sm="12" xs="6">
 							<div className="coach_section">
 								<Image className="img-fluid" src={Coach1} alt="Coach_img_1" />
 								<div className="coach_content">
@@ -157,7 +157,7 @@ function Homepage() {
 								</div>
 							</div>
 						</Col>
-						<Col xxl="3" lg="6" md="12" sm="12" xs="12">
+						<Col xxl="3" lg="6" md="12" sm="12" xs="6">
 							<div className="coach_section">
 								<Image className="img-fluid" src={Coach2} alt="Coach_img_1" />
 								<div className="coach_content">
@@ -167,7 +167,7 @@ function Homepage() {
 								</div>
 							</div>
 						</Col>
-						<Col xxl="3" lg="6" md="12" sm="12" xs="12">
+						<Col xxl="3" lg="6" md="12" sm="12" xs="6">
 							<div className="coach_section">
 								<Image className="img-fluid" src={Coach3} alt="Coach_img_1" />
 								<div className="coach_content">
@@ -177,7 +177,7 @@ function Homepage() {
 								</div>
 							</div>
 						</Col>
-						<Col xxl="3" lg="6" md="12" sm="12" xs="12">
+						<Col xxl="3" lg="6" md="12" sm="12" xs="6">
 							<div className="coach_section">
 								<Image className="img-fluid" src={Coach4} alt="Coach_img_1" />
 								<div className="coach_content">
@@ -689,32 +689,32 @@ function Homepage() {
 				</div>
 				<Container>
 					<Row>
-						<Col xxl="2" lg="6" md="12" xs="12">
+						<Col xxl="2" lg="6" md="12" xs="6">
 							<div className="feature_1">
 								<Image className="img-fluid" src={Feature1} alt='featureImage1' />
 							</div>
 						</Col>
-						<Col xxl="2" lg="6" md="12" xs="12">
+						<Col xxl="2" lg="6" md="12" xs="6">
 							<div className="feature_1">
 								<Image className="img-fluid" src={Feature2} alt='featureImage1' />
 							</div>
 						</Col>
-						<Col xxl="2" lg="6" md="12" xs="12">
+						<Col xxl="2" lg="6" md="12" xs="6">
 							<div className="feature_1">
 								<Image className="img-fluid" src={Feature3} alt='featureImage1' />
 							</div>
 						</Col>
-						<Col xxl="2" lg="6" md="12" xs="12">
+						<Col xxl="2" lg="6" md="12" xs="6">
 							<div className="feature_1">
 								<Image className="img-fluid" src={Feature4} alt='featureImage1' />
 							</div>
 						</Col>
-						<Col xxl="2" lg="6" md="12" xs="12">
+						<Col xxl="2" lg="6" md="12" xs="6">
 							<div className="feature_1">
 								<Image className="img-fluid" src={Feature5} alt='featureImage1' />
 							</div>
 						</Col>
-						<Col xxl="2" lg="6" md="12" xs="12">
+						<Col xxl="2" lg="6" md="12" xs="6">
 							<div className="feature_1">
 								<Image className="img-fluid" src={Feature6} alt='featureImage1' />
 							</div>
