@@ -375,6 +375,7 @@ $Primary_Fit_Gradient: linear-gradient(101deg, rgba(89, 223, 116, 0.1) 15.26%, r
                 li{
                     list-style: none;
                     margin-bottom: 15px;
+                    display: flex;
                     span{
                         margin-right: 15px;
                     }
@@ -1258,5 +1259,45 @@ $Primary_Fit_Gradient: linear-gradient(101deg, rgba(89, 223, 116, 0.1) 15.26%, r
     }
     .our_coaches .coach_section .coach_content p {
         font-size: 10px;
+    }
+}
+
+@media(min-width: 992px) and (max-width: 1240px){
+    .app_links .app_links_content {
+        justify-content: center;
+        margin-top: 60px;
+    }
+    .app_links .app_links_image {
+        text-align: center;
+    }
+    .google_apple_links {
+        padding-bottom: 110px;
+    }
+    .app_links .app_links_content ul {
+        margin: 40px 0 30px 0;
+    }
+    .feature_section .feature_1 {
+        margin-bottom: 30px;
+    }
+    .our_coaches .coach_section {
+        margin: 100px 0 0;
+    }
+    .our_coaches .common_button {
+        margin-top: 80px;
+    }
+    .customer_experience .slick-prev {
+        left: 39% !important;
+    }
+    .customer_experience .slick-next {
+        right: 37% !important;
+    }
+    .banner_section .banner_inner_section .content_section h1 {
+        font-size: 40px;
+    }
+    .banner_section .banner_inner_section .content_section .enter_mobile_button input.form-control {
+        font-size: 14px;
+    }
+    .banner_section .banner_inner_section .content_section .enter_mobile_button .input_button {
+        top: 4px;
     }
 }
