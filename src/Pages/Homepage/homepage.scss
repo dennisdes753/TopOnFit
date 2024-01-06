@@ -1075,6 +1075,7 @@ $Primary_Fit_Gradient: linear-gradient(101deg, rgba(89, 223, 116, 0.1) 15.26%, r
     .contact_form .banner_with_contact .contact_form_text .contact_form_section form {
         width: 100%;
         margin-top: 0;
+        max-width: 100%;
     }
     .our_ultimate_plans .ultimate_plan_column_1 .outUltimateItems {
         width: 100%;
@@ -1350,6 +1351,9 @@ $Primary_Fit_Gradient: linear-gradient(101deg, rgba(89, 223, 116, 0.1) 15.26%, r
     }
     .how_to_use {
         padding: 50px 0;
+    }
+    footer .footer_inner .logo_with_content p {
+        max-width: 100%;
     }
 }
 
