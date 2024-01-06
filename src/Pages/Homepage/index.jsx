@@ -352,7 +352,7 @@ function Homepage() {
 				<Container>
 					<div className="how_to_use_internal_section">
 						<Row>
-							<Col xxl="6" lg="6" md="6"  sm="6" xs="12">
+							<Col xxl="6" lg="6" md="12"  sm="12" xs="12">
 								<div className="how_to_use_steps">
 									<label>Step 1</label>
 									<h4>Download ToneOp Fit</h4>
@@ -369,7 +369,7 @@ function Homepage() {
 									<p>Get a free expert consultation for personal guidance and start your health journey with ToneOp Fit.</p>
 								</div>
 							</Col>
-							<Col xxl="6" lg="6" md="6" sm="6" xs="12">
+							<Col xxl="6" lg="6" md="12" sm="12" xs="12">
 								<div className="how_to_use_img">
 									<div className="step_board">
 										<div className="svg_icons">
