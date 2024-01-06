@@ -979,6 +979,13 @@ $Primary_Fit_Gradient: linear-gradient(101deg, rgba(89, 223, 116, 0.1) 15.26%, r
     }    
 }
 
+.display-block{
+    display: block !important;
+}
+
+.display-none {
+    display: none !important;
+}
 
 @media(min-width: 320px) and (max-width: 991px){
     .testimonials .numbers ul {
@@ -1076,15 +1083,17 @@ $Primary_Fit_Gradient: linear-gradient(101deg, rgba(89, 223, 116, 0.1) 15.26%, r
         width: 100%;
     }
     .transform_body .transform_health_paragraph .achievements {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
+        background: transparent;
+        padding: 0;
     }
     .content_1 {
         text-align: center;
         margin: 20px 0;
     }
     .fitness_in_hands .fitness_hands_column {
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
     .fitness_in_hands .fitness_hands_column .content {
         width: 100%;
@@ -1260,6 +1269,62 @@ $Primary_Fit_Gradient: linear-gradient(101deg, rgba(89, 223, 116, 0.1) 15.26%, r
     .our_coaches .coach_section .coach_content p {
         font-size: 10px;
     }
+    .health_score .health_score_section_wrap .new_section {
+        padding: 25px;
+    }
+    .health_score .health_score_section_wrap .new_section p {
+        margin: 20px 0;
+    }
+    .health_score .health_score_section_wrap .new_section .health_score_less_more {
+        flex-direction: column;
+    }
+    .fitness_in_hands .fitness_hands_column .img img {
+        border-radius: 30px 30px 0 0;
+    }
+    .how_to_use_internal_section .row{
+        flex-direction: column-reverse;
+    }
+    .transform_body .transform_health_paragraph .achievements .content_1 h4 {
+        color: $Primary_Green;
+        font-size: 28px;
+    }
+    .transform_body .transform_health_paragraph .achievements .content_1 h6 {
+        color: $Grey_Color;
+        font-size: 12px;
+    }
+    .transform_body_column_reverse{
+        flex-direction: column-reverse;
+    }
+    .transform_body_column_reverse .transform_1:first-child{
+        margin-top: 50px;
+    }
+    .transform_body_column_reverse .player_video{
+        border-radius: 8px;
+    }
+    .best_transformation .heading svg {
+        left: -130px;
+    }
+    .our_coaches .heading svg {
+        left: -30px;
+    }
+    .our_ultimate_plans .heading svg {
+        left: -70px;
+    }
+    .display-none {
+        display: block !important;
+    }
+
+    .display-block {
+        display: none !important;
+    }
+    .transform_body .transform_health_heading .global_button {
+        text-align: center;
+        margin: 0 auto;
+    }
+    .transform_health_heading.display-none {
+        margin-bottom: 70px;
+        text-align: center;
+    }
 }
 
 @media(min-width: 992px) and (max-width: 1240px){
@@ -1300,4 +1365,5 @@ $Primary_Fit_Gradient: linear-gradient(101deg, rgba(89, 223, 116, 0.1) 15.26%, r
     .banner_section .banner_inner_section .content_section .enter_mobile_button .input_button {
         top: 4px;
     }
+
 }

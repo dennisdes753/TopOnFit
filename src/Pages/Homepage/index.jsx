@@ -404,7 +404,7 @@ function Homepage() {
 						<Col xxl="6" lg="12" xs="12">
 							<div className="transform_health_heading">
 								<h4>No More Excuses! Let’s Transform Your Health Together!</h4>
-								<NavLink className="btn btn-primary global_button" to="https://play.google.com/store/apps/details?id=com.toneop.mobile&hl=en&gl=US" target="_blank">Download Our App</NavLink>
+								<NavLink className="btn btn-primary global_button display-block" to="https://play.google.com/store/apps/details?id=com.toneop.mobile&hl=en&gl=US" target="_blank">Download Our App</NavLink>
 							</div>
 						</Col>
 						<Col xxl="6" lg="12" xs="12">
@@ -426,10 +426,13 @@ function Homepage() {
 										<h6>Active Users</h6>
 									</div>
 								</div>
+								<div className="transform_health_heading display-none">
+									<NavLink className="btn btn-primary global_button" to="https://play.google.com/store/apps/details?id=com.toneop.mobile&hl=en&gl=US" target="_blank">Download Our App</NavLink>
+								</div>
 							</div>
 						</Col>
 					</Row>
-					<Row>
+					<Row className="transform_body_column_reverse">
 						<Col xxl="4" lg="6" md="12" xs="12">
 							<div className="transform_1">
 								<span>
