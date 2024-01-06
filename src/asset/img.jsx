@@ -52,3 +52,4 @@ export { default as MedicalCondition5 } from './images/medical_condition_5.png';
 export { default as HappyIcon } from './images/smiley_icon.png';
 export { default as HorrorIcon } from './images/horror_icon.png';
 export { default as Whatsapp } from './images/whatapp.png';
+export { default as CoupanCode } from './images/coupan_code.png';

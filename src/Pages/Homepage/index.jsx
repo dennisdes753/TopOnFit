@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Header from '../../CommonComponent/Header/header';
 import { Container, Row, Col, Image, InputGroup, Form, Button } from 'react-bootstrap';
-import { BannerImage, Coach1, Coach2, Coach3, Coach4, FinessHand, HowToUseImg, FitnessVideo, RatingImg, FitnessVideo1, FitnessVideo2,  FitnessVideo4, FitnessVideo5, FitnessVideo6, FitnessVideo7, AppLinks, AppStore, GooglePlay, Feature1, Feature2, Feature3, Feature4, Feature5, Feature6, BannerContactSection, HappyIcon, HorrorIcon, Whatsapp } from '../../asset/img';
+import { BannerImage, Coach1, Coach2, Coach3, Coach4, FinessHand, HowToUseImg, FitnessVideo, RatingImg, FitnessVideo1, FitnessVideo2, FitnessVideo4, FitnessVideo5, FitnessVideo6, FitnessVideo7, AppLinks, AppStore, GooglePlay, Feature1, Feature2, Feature3, Feature4, Feature5, Feature6, BannerContactSection, HappyIcon, HorrorIcon, Whatsapp, CoupanCode } from '../../asset/img';
 import { NavLink } from 'react-router-dom';
 import OurUltimatePlans from '../Components/HomepageTab/ourUltimatePlans';
 import ExperienceSlider from '../Components/CustomerExperience/slider';
@@ -38,8 +38,11 @@ function Homepage() {
 	return (
 		<>
 		<div className="whatsapp">
-				<NavLink to="#" >
+			<NavLink to="#" className="display-block">
 				<Image className="mg-fluid" src={Whatsapp}/>
+			</NavLink>
+			<NavLink to="#" className="display-none">
+					<Image className="mg-fluid" src={CoupanCode} />
 			</NavLink>
 		</div>
 			<Header />
