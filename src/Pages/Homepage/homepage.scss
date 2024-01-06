@@ -1129,7 +1129,7 @@ $Primary_Fit_Gradient: linear-gradient(101deg, rgba(89, 223, 116, 0.1) 15.26%, r
         max-width: 104px;
         height: 42px;
         font-size: 12px;
-        right: 26px;
+        right:43px;
         top: 5px;
     }
     .banner_section .banner_inner_section .content_section .enter_mobile_button input.form-control {
@@ -1261,7 +1261,7 @@ $Primary_Fit_Gradient: linear-gradient(101deg, rgba(89, 223, 116, 0.1) 15.26%, r
         right: 52% !important;
     }
     .our_coaches {
-        padding: 10px 0;
+        padding: 10px 0 50px;
     }
     .our_coaches .coach_section .coach_content h5 {
         font-size: 14px;
@@ -1324,6 +1324,31 @@ $Primary_Fit_Gradient: linear-gradient(101deg, rgba(89, 223, 116, 0.1) 15.26%, r
     .transform_health_heading.display-none {
         margin-bottom: 70px;
         text-align: center;
+    }
+    .topnav .navbar .navbar-brand img {
+        width: 129px;
+        height: 30px;
+        object-fit: contain;
+    }
+    a.navbar-brand {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    a.navbar-brand a{
+        background: $Primary_Fit_Gradient2;
+        border-radius: 75px;
+        padding: 10px 25px;
+        color: #fff;
+        font-size: 12px;
+        min-width: 104px;
+        max-width: 104px;
+        min-height: 42px;
+        max-height: 42px;
+    }
+    .how_to_use {
+        padding: 50px 0;
     }
 }
 
